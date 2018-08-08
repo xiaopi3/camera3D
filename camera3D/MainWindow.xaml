@@ -1,0 +1,44 @@
+﻿<Window x:Class="camera3D.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:camera3D"
+        xmlns:myControl="clr-namespace:camera3D.UserControls"
+        mc:Ignorable="d"
+        Title="camera3D" Height="600" Width="1000" Closing="Window_Closing" FontSize="16">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="35*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="76"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,31,10" Grid.Row="1" Grid.RowSpan="6">
+            <Image x:Name="ImageBox" Margin="10,10,10,10"/>
+        </Border>
+        <Button Content="相机设置" HorizontalAlignment="Left" Height="30" Margin="15,20,0,0" VerticalAlignment="Top" Width="80" Click="Setting_Bt"/>
+        <Button Content="路径设置" HorizontalAlignment="Left" Height="30" Margin="101,20,0,0" VerticalAlignment="Top" Width="80" Click="SetSavaPath"/>
+
+        <Button Content="连续获取" HorizontalAlignment="Left" Height="30" Margin="336,20,0,0" VerticalAlignment="Top" Width="80" Click="Continue_Bt"/>
+        <Button Content="单张" HorizontalAlignment="Left" Height="30" Margin="421,20,0,0" VerticalAlignment="Top" Width="80" Click="Single_Bt"/>
+        <Button Content="多张" HorizontalAlignment="Left" Height="30" Margin="506,20,0,0" VerticalAlignment="Top" Width="80" Click="Multiply_Bt"/>
+        <TextBox x:Name="GetNum" HorizontalAlignment="Left" Height="30" Margin="591,20,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="1" VerticalAlignment="Top" Width="36" FontSize="18"/>
+
+        <myControl:SliderWithEnable x:Name="exposureControl" Grid.Row="1" Grid.Column="1"/>
+        <myControl:SliderWithEnable x:Name="frameRateControl" Grid.Row="2" Grid.Column="1"/>
+        <myControl:SliderWithEnable x:Name="blackLevelControl" Grid.Row="3" Grid.Column="1"/>
+        <myControl:SliderWithEnable x:Name="GainControl" Grid.Row="4" Grid.Column="1"/>
+        <Label Content="------相机属性设置------" Grid.Column="1" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Hz" Content="" HorizontalAlignment="Left" Height="30" Margin="604,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" FontSize="12"/>
+
+    </Grid>
+</Window>

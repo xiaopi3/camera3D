@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="camera3D.UserControls.SliderWithEnable"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:camera3D.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="66" d:DesignWidth="280" FontSize="16">
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Height="20" Margin="86,10,0,0" VerticalAlignment="Top" Width="124" Grid.Row="1" ValueChanged="slider_ValueChanged" IsEnabled="False"/>
+        <Label Content="{Binding ElementName=slider,Path=Value}" HorizontalAlignment="Left" Height="35" Margin="210,5,0,0" VerticalAlignment="Top" Width="65" Grid.Row="1"/>
+        <Label x:Name="sliderName" Content="text" HorizontalAlignment="Left" Height="35" Margin="2,5,0,0" VerticalAlignment="Center" Width="79" Grid.Row="1"/>
+        <CheckBox x:Name="sliderCheck" Content="text" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Checked="sliderCheck_Checked" Unchecked="sliderCheck_Unchecked" Height="16"/>
+
+    </Grid>
+</UserControl>
