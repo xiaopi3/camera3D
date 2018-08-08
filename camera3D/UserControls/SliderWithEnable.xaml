@@ -11,10 +11,10 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <Slider x:Name="slider" HorizontalAlignment="Left" Height="20" Margin="86,10,0,0" VerticalAlignment="Top" Width="124" Grid.Row="1" ValueChanged="slider_ValueChanged" IsEnabled="False"/>
-        <Label Content="{Binding ElementName=slider,Path=Value}" HorizontalAlignment="Left" Height="35" Margin="210,5,0,0" VerticalAlignment="Top" Width="65" Grid.Row="1"/>
-        <Label x:Name="sliderName" Content="text" HorizontalAlignment="Left" Height="35" Margin="2,5,0,0" VerticalAlignment="Center" Width="79" Grid.Row="1"/>
-        <CheckBox x:Name="sliderCheck" Content="text" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Checked="sliderCheck_Checked" Unchecked="sliderCheck_Unchecked" Height="16"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Height="27" Margin="86,7,0,0" VerticalAlignment="Top" Width="124" Grid.Row="1" ValueChanged="slider_ValueChanged" IsEnabled="False"/>
+        <Label Content="{Binding ElementName=slider,Path=Value}" HorizontalAlignment="Left" Height="35" Margin="210,3,0,0" VerticalAlignment="Top" Width="65" Grid.Row="1"/>
+        <Label x:Name="sliderName" Content="text" HorizontalAlignment="Left" Height="35" Margin="2,3,0,0" VerticalAlignment="Top" Width="79" Grid.Row="1"/>
+        <CheckBox x:Name="sliderCheck" Content="text" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Checked="sliderCheck_Checked" Unchecked="sliderCheck_Unchecked" Height="19"/>
 
     </Grid>
 </UserControl>

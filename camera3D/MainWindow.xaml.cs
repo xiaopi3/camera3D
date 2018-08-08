@@ -104,7 +104,6 @@ namespace camera3D
                 camList.Clear();
                 system.Dispose();
                 Console.WriteLine("无相机！");
-                //System.Windows.Application.Current.Shutdown();
                 return;
             }
             cam = camList[0];
@@ -739,7 +738,6 @@ namespace camera3D
             }
             return wpfBitmap;
         }
-
 
     }
 }
