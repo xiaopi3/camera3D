@@ -37,6 +37,7 @@
         <myControl:SliderWithEnable x:Name="frameRateControl" Grid.Row="2" Grid.Column="1"/>
         <myControl:SliderWithEnable x:Name="blackLevelControl" Grid.Row="3" Grid.Column="1"/>
         <myControl:SliderWithEnable x:Name="GainControl" Grid.Row="4" Grid.Column="1"/>
+        <myControl:SliderWithEnable x:Name="acceptPointValue" Grid.Row="5" Grid.Column="1"/>
         <Label Content="------相机属性设置------" Grid.Column="1" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Hz" Content="" HorizontalAlignment="Left" Height="30" Margin="604,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" FontSize="12"/>
 

@@ -70,6 +70,9 @@ namespace camera3D
             GainControl.sliderName.Content = "增益";
             GainControl.sliderCheck.Content = "手动增益";
 
+            acceptPointValue.sliderName.Content = "接受阈值";
+            acceptPointValue.sliderCheck.Content = "手动";
+
             if (SavePath == null)
             {
                 SavePath = "./";
@@ -160,6 +163,11 @@ namespace camera3D
 
             //调用刷新控件
             flushControl();
+
+            //接受点阈值
+            acceptPointValue.slider.Maximum = 255;
+            acceptPointValue.slider.Minimum = 0;
+            acceptPointValue.slider.Value = 60;
             //控件委托
             #region
             exposureControl.setSliderEvent += () => { cam.ExposureTime.Value = exposureControl.slider.Value; };
@@ -170,13 +178,14 @@ namespace camera3D
             frameRateControl.setCheckedEvent += frameRateManualEnable;
             frameRateControl.setUnCheckEvent += frameRateManualDisable;
 
-            blackLevelControl.setSliderEvent += () => { cam.BlackLevelAuto.Value = BlackLevelAutoEnums.Off.ToString(); };
+            //blackLevelControl.setSliderEvent += () => { cam.BlackLevelAuto.Value = BlackLevelAutoEnums.Off.ToString(); };
             blackLevelControl.slider.IsEnabled = false;
 
             GainControl.setSliderEvent += () => { cam.Gain.Value = GainControl.slider.Value; };
             GainControl.setCheckedEvent += () => { cam.GainAuto.Value = GainAutoEnums.Off.ToString(); };
             GainControl.setUnCheckEvent += () => { cam.GainAuto.Value = GainAutoEnums.Continuous.ToString(); };
             #endregion
+            acceptPointValue.sliderCheck.IsChecked = true;
 
         }
 
@@ -540,7 +549,10 @@ namespace camera3D
 
                                             }
 
-
+                                            if(maxPiexl < acceptPointValue.slider.Value)
+                                            {
+                                                continue;
+                                            }
 
                                             //重心法求光心，取邻域2个像素距离
                                             byte piexel0 = Marshal.ReadByte(imgPtr, (int)(Y_ind * width+X_ind-2));
@@ -557,8 +569,8 @@ namespace camera3D
                                             //全部转换为mm
                                             double perPiexl = 3.45 / 1000.0;//单位像素大小
                                             double f = 8.596;//8.596;//焦距
-                                            double s = 250;//基线长度
-                                            double beta0 = 68*Math.PI/180;//初始度数
+                                            double s = 265;//基线长度
+                                            double beta0 = 90*Math.PI/180;//初始度数
                                             //double epsilon = 0 * Math.PI / 180;
                                             //double offset0 = -halfWidthPic* perPiexl;//待拟合
                                             double beta1;
